@@ -16,25 +16,23 @@ function init(): AppState {
     };
 }
 
-export const appStateReducer = (state: AppState = init(), action: Actions.Actions) => {
-    switch (action.type) {
+export const appStateReducer = (state: AppState = init(), action: Actions.Action) => {
+    if (Actions.isType(action, Actions.INCREMENT)) {
+        return Object.assign({}, state, {
+            count: state.count + 1
+        });
+    }
 
-        case Actions.INCREMENT:
-            return Object.assign({}, state, {
-                count: state.count + 1
-            });
+    if (Actions.isType(action, Actions.DECREMENT)) {
+        return Object.assign({}, state, {
+            count: state.count - 1
+        });
+    }
 
-        case Actions.DECREMENT:
-            return Object.assign({}, state, {
-                count: state.count + -1
-            });
-
-        case Actions.SET_COUNT:
-            return Object.assign({}, state, {
-                count: action.payload.count
-            });
-
-        // default: const _exhaustiveCheck: never = action;
+    if (Actions.isType(action, Actions.SET_COUNT)) {
+        return Object.assign({}, state, {
+            count: action.payload.count
+        });
     }
 
     return state;

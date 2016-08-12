@@ -1,13 +1,19 @@
-import { Action } from 'redux'
+interface ActionType<TAction> extends String { }
 
-export type Actions = IncrementAction | DecrementAction | SetCounterAction;
+export interface Action {
+    type: String;
+    payload?: any;
+}
 
-export const INCREMENT: 'INCREMENT' = 'INCREMENT';
-export const DECREMENT: 'DECREMENT' = 'DECREMENT';
-export const SET_COUNT: 'SET_COUNT' = 'SET_COUNT';
+export function isType<T extends Action>(action: Action, type: ActionType<T>): action is T {
+    return action.type === type;
+}
+
+export const INCREMENT: ActionType<IncrementAction> = 'INCREMENT';
+export const DECREMENT: ActionType<DecrementAction> = 'DECREMENT';
+export const SET_COUNT: ActionType<SetCounterAction> = 'SET_COUNT';
 
 export interface IncrementAction extends Action {
-    type: typeof INCREMENT;
 }
 export function increment(): IncrementAction {
     return {
@@ -16,7 +22,6 @@ export function increment(): IncrementAction {
 }
 
 export interface DecrementAction extends Action {
-    type: typeof DECREMENT;
 }
 export function decrement(): DecrementAction {
     return {
@@ -25,7 +30,6 @@ export function decrement(): DecrementAction {
 }
 
 export interface SetCounterAction extends Action {
-    type: typeof SET_COUNT;
     payload: {
         count: number;
     }
