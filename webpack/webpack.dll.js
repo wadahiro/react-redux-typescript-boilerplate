@@ -11,7 +11,7 @@ var config = {
     },
     devtool: '#source-map',
     output: {
-        path: path.join(__dirname, '../public/assets'),
+        path: path.join(__dirname, '../.dll'),
         filename: '[name].js',
         library: '[name]_[hash]'
     },

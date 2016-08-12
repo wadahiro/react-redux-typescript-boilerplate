@@ -1,6 +1,6 @@
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
+var AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin').default;
 
 var path = require('path')
 var objectAssign = require('object-assign')
@@ -13,8 +13,8 @@ module.exports = {
   entry: ['babel-polyfill', './src/script/index.tsx'],
   output: {
     path: path.join(__dirname, '../public'),
-    publicPath: '',
-    filename: 'assets/app.js'
+    //publicPath: '',
+    filename: 'app.js'
   },
   module: {
     loaders: [
@@ -51,10 +51,11 @@ module.exports = {
       hash: true
     }),
     new AddAssetHtmlPlugin({
-      filename: require.resolve('../public/assets/vendor.js'),
+      filepath: require.resolve('../.dll/vendor.js'),
       publicPath: 'assets',
+      outputPath: 'assets',
       hash: true,
-      includeSourcemap: NODE_ENV === 'development'
+      includeSourcemap: true
     })
     // I'm waiting the issue is resolved...
     // https://github.com/amireh/happypack/issues/33

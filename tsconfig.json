@@ -7,7 +7,8 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "outDir": ".tmp",
-        "sourceMap": true
+        "sourceMap": true,
+        "strictNullChecks": false
     },
     "exclude": [
         "public",

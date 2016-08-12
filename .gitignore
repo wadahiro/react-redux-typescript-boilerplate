@@ -3,3 +3,4 @@ node_modules
 .dll
 .tmp
 public
+typings

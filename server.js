@@ -9,7 +9,7 @@ app.set('port', (process.env.PORT || 3000));
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 
-app.get(contextPath + '/rest/api/ping', function (req, res) {
+app.get('/rest/api/ping', function (req, res) {
     res.setHeader('Cache-Control', 'no-cache');
     res.json({
         message: 'pong!'

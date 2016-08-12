@@ -16,9 +16,6 @@
     "start": "npm run build:assets && node-dev webpack/webpack.server.js"
   },
   "devDependencies": {
-    "@types/react": "^0.14.26-alpha",
-    "@types/react-dom": "^0.14.12-alpha",
-    "@types/react-redux": "^4.4.26-alpha",
     "add-asset-html-webpack-plugin": "^0.3.0",
     "awesome-typescript-loader": "^2.0.1",
     "babel-core": "^6.10.4",
@@ -34,6 +31,7 @@
     "redux-devtools-dock-monitor": "^1.1.1",
     "redux-devtools-log-monitor": "^1.0.11",
     "typescript": "^2.0.0",
+    "typings": "^1.3.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
