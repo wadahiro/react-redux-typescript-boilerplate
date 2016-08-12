@@ -19,17 +19,17 @@ function init(): AppState {
 export const appStateReducer = (state: AppState = init(), action: Actions.Actions) => {
     switch (action.type) {
 
-        case Actions.INCREMENT:
+        case 'INCREMENT':
             return Object.assign({}, state, {
                 count: state.count + 1
             });
 
-        case Actions.DECREMENT:
+        case 'DECREMENT':
             return Object.assign({}, state, {
                 count: state.count + -1
             });
 
-        case Actions.SET_COUNT:
+        case 'SET_COUNT':
             return Object.assign({}, state, {
                 count: action.payload.count
             });
